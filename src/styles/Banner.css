@@ -1,0 +1,75 @@
+/* .banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.banner-left {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.banner-center {
+  text-align: center;
+  flex: 1;
+}
+
+h1,
+p {
+  margin: 5px 0;
+} */
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+/* Left Section */
+.banner-left {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* ✅ Ensure true center alignment */
+.banner-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.banner-center h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.banner-center p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
