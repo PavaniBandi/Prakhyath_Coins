@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/coinCard.css";
+import "../styles/CoinCard.css";
 
 const CoinCard = ({ coin }) => {
   const navigate = useNavigate();

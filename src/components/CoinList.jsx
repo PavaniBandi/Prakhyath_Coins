@@ -1,6 +1,6 @@
 import React from "react";
 import CoinCard from "./CoinCard";
-import "./../styles/coincard.css";
+import "../styles/CoinCard.css";
 
 const CoinList = ({ coins }) => {
   return (
