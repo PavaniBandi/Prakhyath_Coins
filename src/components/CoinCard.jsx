@@ -12,8 +12,9 @@ const CoinCard = ({ coin }) => {
   return (
     <div className="coin-card" onClick={handleClick}>
       <img src={coin.image} alt={coin.name} className="coin-image" />
-      <h3>{coin.name} ({coin.year})</h3>
-      <p>{coin.description ? coin.description.substring(0, 50) + "..." : "No description available."}</p> {/* Handle missing descriptions */}
+      <h3>
+        {coin.name} ({coin.year})
+      </h3>
     </div>
   );
 };

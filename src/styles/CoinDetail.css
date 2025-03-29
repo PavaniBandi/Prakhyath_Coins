@@ -44,3 +44,25 @@
 .go-back:hover {
   background: #0056b3;
 }
+.coin-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ✅ Mobile-Friendly */
+@media (min-width: 768px) {
+  .coin-detail-container {
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+  }
+
+  .coin-image {
+    max-width: 200px;
+    margin-right: 20px;
+  }
+}

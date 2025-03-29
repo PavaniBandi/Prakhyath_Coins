@@ -2,25 +2,59 @@ import React from "react";
 import "../styles/pagination.css";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  if (totalPages <= 1) return null; // Hide pagination if there's only one page
+  const maxPageNumbersToShow = 5; // Set max numbers to display
+
+  const getPaginationNumbers = () => {
+    if (totalPages <= maxPageNumbersToShow) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    const pageNumbers = [];
+    const leftSide = Math.max(1, currentPage - 2);
+    const rightSide = Math.min(totalPages, currentPage + 2);
+
+    if (leftSide > 1) pageNumbers.push(1);
+    if (leftSide > 2) pageNumbers.push("...");
+
+    for (let i = leftSide; i <= rightSide; i++) {
+      pageNumbers.push(i);
+    }
+
+    if (rightSide < totalPages - 1) pageNumbers.push("...");
+    if (rightSide < totalPages) pageNumbers.push(totalPages);
+
+    return pageNumbers;
+  };
 
   return (
     <div className="pagination">
-      <button disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
         Prev
       </button>
 
-      {Array.from({ length: totalPages }, (_, index) => (
-        <button
-          key={index}
-          className={currentPage === index + 1 ? "active" : ""}
-          onClick={() => onPageChange(index + 1)}
-        >
-          {index + 1}
-        </button>
-      ))}
+      {getPaginationNumbers().map((page, index) =>
+        typeof page === "number" ? (
+          <button
+            key={index}
+            onClick={() => onPageChange(page)}
+            className={currentPage === page ? "active" : ""}
+          >
+            {page}
+          </button>
+        ) : (
+          <span key={index} className="dots">
+            {page}
+          </span>
+        )
+      )}
 
-      <button disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
         Next
       </button>
     </div>

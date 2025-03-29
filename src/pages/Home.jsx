@@ -5,7 +5,7 @@ import CoinList from "../components/CoinList";
 import Pagination from "../components/Pagination";
 import coinsData from "../data/coins";
 
-const categories = ["All", "Gold", "Silver", "Rare"];
+const categories = ["All", "Indian Princely State", "British India"];
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
